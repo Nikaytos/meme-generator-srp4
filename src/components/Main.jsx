@@ -7,6 +7,14 @@ export default function Main() {
         imageUrl: 'http://i.imgflip.com/1bij.jpg',
     });
 
+    function handleChange(event) {
+        const {value} = event.currentTarget
+        setMeme((prev) => ({
+            ...prev,
+            topText: value,
+        }))
+    }
+
     return (
         <main>
             <div className="form">
@@ -15,6 +23,7 @@ export default function Main() {
                         type="text"
                         placeholder="One does not simply"
                         name="topText"
+                        onChange={handleChange}
                     />
                 </label>
 
