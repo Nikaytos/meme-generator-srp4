@@ -22,6 +22,16 @@ export default function Main() {
         }))
     }
 
+    const handleGetNewMemeImageClick = () => {
+        const randomNumber = Math.floor(Math.random() * memeList.length)
+        const newMemeUrl = memeList[randomNumber].url;
+
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            imageUrl: newMemeUrl,
+        }))
+    }
+
     return (
         <main>
             <div className="form">
@@ -42,7 +52,8 @@ export default function Main() {
                         onChange={handleChange}
                     />
                 </label>
-                <button>Get a new meme image 🖼</button>
+
+                <button onClick={handleGetNewMemeImageClick}>Get a new meme image 🖼</button>
             </div>
             <div className="meme">
                 <img src={meme.imageUrl} alt={'meme image'} />
